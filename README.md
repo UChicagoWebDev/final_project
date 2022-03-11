@@ -134,8 +134,11 @@ API (8 points)
 UI and Responsive Layout (8 points)
 - Prompt unauthenticaed users to sign in with their username and password, or to
   create an account. You do not need to support changing
-- On wide screens, two-column layout to show the channel list in one column and
-  the messages in one active channel or thread in the other column.
+- On wide screens, use a two- or three-column layout to show the channel list in
+  one column and the messages in one active channel or thread in the other
+  column(s). When viewing a reply thread, you may lay it out in three columns
+  like Slack does, or in two columns, hiding the messages in the channel,
+  whichever makes more sense to you.
 - When viewing replies, users can see the parent message they are replying to.
   They can click a button or link to navigate to the channel containing the
   parent message.
@@ -161,7 +164,7 @@ Single-Page State (5 points)
   as part of your storage keys so your storage won't conflict with
   those of other students on the graders' machines. e.g.
   `window.localStorage.setItem('trevoraustin_belay_auth_key', 'abcdefg')`
-  
+
 Asynchronous Request Handling (2 points)
 - Continuously poll for new messages, only in the channel the user is in. You
   may use setInterval.
