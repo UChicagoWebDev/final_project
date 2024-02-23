@@ -1,12 +1,13 @@
 # Final Project: Belay (a Slack clone)
 
 ## Running the Application
-1. Download the repo  
-2. From a fresh terminal window, access the root directory of this project.  
-3. Run: flask run  
-4. From another fresh terminal window, access the frontend_react directory of this project.  
-5. Run: npm start  
-6. Access a browser (chrome) window, and search: "http://127.0.0.1:5000/login"  
+1. Download the repo
+2. Checkout to v2 branch: git checkout v2
+3. From a fresh terminal window, access the root directory of this project.  
+4. Run: flask run  
+5. From another fresh terminal window, access the frontend_react directory of this project.  
+6. Run: npm start  
+7. Access a browser (chrome) window, and search: "http://127.0.0.1:5000/login"  
 
 
 40 points
