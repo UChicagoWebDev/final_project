@@ -1,0 +1,35 @@
+.navbar {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 50px; 
+    background-color: #E01E5A; 
+    color: white;
+    font-size: 24px; 
+}
+
+.nav-brand {
+    font-size: 36px; 
+}
+
+.nav-items {
+    display: flex;
+    gap: 10px; 
+}
+
+.nav-link, .username-button {
+    background-color: #611f69; 
+    border: none;
+    color: white;
+    padding: 20px 30px; 
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s; 
+    font-size: 22px; 
+}
+
+.nav-link:hover, .username-button:hover {
+    background-color: #4A154B; 
+}
+

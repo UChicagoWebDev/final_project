@@ -1,5 +1,14 @@
 # Final Project: Belay (a Slack clone)
 
+## Running the Application
+1. Download the repo  
+2. From a fresh terminal window, access the root directory of this project.  
+3. Run: flask run  
+4. From another fresh terminal window, access the react directory of this project.  
+5. Run: npm start  
+6. Access a browser (chrome) window, and search: "http://127.0.0.1:5000/login"  
+
+
 40 points
 
 **DUE: Friday, March 8 by 5:00pm**

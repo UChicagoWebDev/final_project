@@ -1,0 +1,65 @@
+/* lastReply.css */
+.reply-thread {
+    overflow-y: auto;
+    flex-grow: 1;
+    padding: 10px;
+  }
+  
+  .reply {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: background-color 0.2s ease; 
+    color: #333; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .reply:hover {
+    background-color: #f5f5f5; 
+  }
+  
+  .reply-author {
+    font-weight: bold;
+    color: #333; 
+  }
+  
+  .reply-content {
+    margin-left: 10px;
+    color: #333; 
+  }
+
+  .replies-emojis-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Adjust this value to control the space between the replies count and the emojis */
+  }
+
+  .replies-emojis-left {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 10px; 
+  }
+
+  .reply-emojis {
+    display: flex;
+    gap: 6px; 
+  }
+  
+  .emoji {
+    background-color: #f0f0f0; 
+    border: none; 
+    cursor: pointer; 
+    border-radius: 4px; 
+    padding: 5px; 
+    font-size: 20px; 
+  }
+  
+  .emoji:hover {
+    background-color: #e0e0e0; /* Slightly darker gray on hover for feedback */
+  }
+  
+  

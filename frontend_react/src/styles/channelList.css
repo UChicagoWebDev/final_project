@@ -1,0 +1,50 @@
+/* userHome.css */
+.home-container {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    color: white; 
+}
+
+.main-content {
+    display: flex;
+    flex-grow: 1;
+}
+
+.channel-list {
+    flex-basis: 20%;
+    overflow-y: auto; 
+    border-right: 1px solid #ccc; 
+    padding: 10px;
+    background-color:#3F0E40;
+}
+
+.channel {
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-bottom: 4px;
+    transition: background-color 0.2s ease;
+    background-color:  #4A154B; 
+    color: white; 
+}
+
+.channel:hover {
+    background-color: #350D36; 
+}
+
+.channel-content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.current-channel {
+    background-color: #2C0838; 
+    color: white;
+    font-weight: bold; 
+}
+
+.current-channel:hover {
+    background-color: #2C0838; 
+}

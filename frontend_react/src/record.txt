@@ -1,0 +1,43 @@
+return (
+  <div className="message-thread">
+    {messages.length > 0 ? (
+      messages.map((message) => (
+        <div key={message.id} className="message" onClick={() => handleMessageClick(message)}>
+          <div className="message-details">
+            <div className="message-author">{message.author}:</div>
+            <div className="message-content">{message.content}</div>
+            {message.replies_count !== 0 && (
+              <div className="message-replies_count">{message.replies_count} Replies</div>
+            )}
+            <div className="message-emojis-left">
+              {message.emojis.map((emoji, index) => (
+                <span key={index} className="emoji">{emoji}</span>
+              ))}
+            </div>
+          </div>
+          <div className="message-emojis">
+            <button className='emoji' onClick={() => reactionTrack("boom", message.id)}>🤯</button>
+            <button className='emoji' onClick={() => reactionTrack("hell", message.id)}>👿</button>
+          </div>
+        </div>
+      ))
+    ) : (
+      <h3>No messages in this thread</h3>
+    )}
+  </div>
+);
+
+
+.message-emojis-left {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 10px; /* Adjust based on your layout */
+}
+.emoji {
+  margin-right: 5px; /* Space between emojis */
+}
+
+
+
+

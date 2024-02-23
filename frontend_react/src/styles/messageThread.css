@@ -1,0 +1,75 @@
+/* messageThread.css */
+  .message-thread {
+    overflow-y: auto;
+    flex-grow: 1;
+    padding: 10px;
+  }
+  
+  .message {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer; 
+    transition: background-color 0.2s ease; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .message:hover {
+    background-color: #f5f5f5;
+  }  
+
+  .message-author {
+    font-weight: bold;
+  }
+  
+  .message-content {
+    margin-left: 10px;
+  }
+  
+
+  .replies-emojis-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Adjust this value to control the space between the replies count and the emojis */
+  }
+  
+  .message-replies_count {
+    margin-top: 8px;
+    font-size: 0.9rem; 
+    color: #555; 
+    background-color: #eef; 
+    padding: 5px 10px; 
+    border-radius: 15px; 
+    display: inline-block;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+    border: 1px solid #d0d0d0; 
+  }
+
+  .message-emojis-left {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 10px; 
+  }
+
+  .message-emojis {
+    display: flex;
+    gap: 6px; 
+  }
+
+  .emoji {
+    background-color: #f0f0f0; 
+    border: none; 
+    cursor: pointer; 
+    border-radius: 4px; 
+    padding: 5px; 
+    font-size: 20px; 
+    margin-right: 5px;
+  }
+  
+  .emoji:hover {
+    background-color: #e0e0e0; 
+  }
