@@ -1,0 +1,22 @@
+.profile-container {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; 
+    padding: 20px; 
+}
+
+.update-username-form,
+.update-password-form {
+    width: 100%; 
+    max-width: 400px; 
+    margin: 20px 0; 
+    padding: 20px; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+    border-radius: 8px; 
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+}

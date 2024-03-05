@@ -7,6 +7,9 @@ function CreateChannel() {
     const navigate = useNavigate();
     const [channelName, setChannelName] = useState('');
     const [deleteChannelName, setDeleteChannelName] = useState('');
+    const username = sessionStorage.getItem("username");
+    const apiKey = sessionStorage.getItem(`${username}_api_key`);
+    
 
     async function handleCreateSubmit(event) {
         event.preventDefault();
@@ -17,6 +20,7 @@ function CreateChannel() {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
+                'X-API-Key': apiKey
               },
               body: JSON.stringify({
                 channelName: channelName

@@ -6,9 +6,12 @@ import '../styles/lastReply.css';
 
 function LastReply() {
   // const navigate = useNavigate();
+  const username = sessionStorage.getItem("username");
+  const apiKey = sessionStorage.getItem(`${username}_api_key`);
   const userid = sessionStorage.getItem("user_id");
   const { channelId, messageId } = useParams(); 
   const [replies, setReplies] = useState([]); 
+
 
   useEffect(() => {
     fetchReplies();
@@ -48,6 +51,7 @@ function LastReply() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'X-API-Key': apiKey
         },
         body: JSON.stringify({
           user_id: userid,
@@ -66,8 +70,60 @@ function LastReply() {
     }
   };
 
+
+// for hovering emojis display user names
+const [tooltip, setTooltip] = useState({ visible: false, users: [], position: { x: 0, y: 0 } });
+
+const fetchReactionUsers = async (emoji, messageId, event) => {
+  try {
+    const response = await fetch(`http://127.0.0.1:5000/api/reactions/${messageId}/${encodeURIComponent(emoji)}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    const data = await response.json();
+    if (data.Success) {
+      setTooltip({
+        visible: true,
+        users: data.users,
+        position: { x: event.clientX, y: event.clientY }
+      });
+      console.log("users: ", data.users)
+    } else {
+      console.log("Failed to fetch users for reaction");
+    }
+  } catch (error) {
+    console.error('Error fetching users for reaction: ', error);
+  }
+};
+
+const Tooltip = ({ users, position }) => {
+  return (
+    <div className="tooltip" style={{ 
+      position: 'absolute', 
+      top: position.y, 
+      left: position.x, 
+      backgroundColor: 'white', 
+      border: '1px solid black', 
+      padding: '10px', 
+      borderRadius: '5px', 
+      display: 'flex', 
+      flexDirection: 'column', 
+      zIndex: 100 
+      }}>
+      {users.map((user, index) => (
+        <span key={index}>{user}</span>
+      ))}
+    </div>
+  );
+};
+
+
+
   return (
     <div className="reply-thread">
+      {tooltip.visible && <Tooltip users={tooltip.users} position={tooltip.position} />}
       {replies.length > 0 ? (
         replies.map((reply) => (
           <div key={reply.id} className="reply">
@@ -76,8 +132,13 @@ function LastReply() {
               <div className="reply-content">{reply.content}</div>
               <div className="replies-emojis-container">
                 <div className="replies-emojis-left">
-                  {reply.emojis.map((emoji, index) => (
+                  {/* {reply.emojis.map((emoji, index) => (
                     <span key={index} className="emoji">{emoji}</span>
+                  ))} */}
+                  {[...new Set(reply.emojis)].map((emoji, index) => (
+                    <span key={index} className="emoji" onMouseEnter={(e) => fetchReactionUsers(emoji, reply.id, e)} onMouseLeave={() => setTooltip({ ...tooltip, visible: false })}>
+                      {emoji}
+                    </span>
                   ))}
                 </div>
               </div>

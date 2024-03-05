@@ -7,6 +7,8 @@ import LastReply from './LastReply';
 function ReplyThread({ messageId }) {
   const username = sessionStorage.getItem("username");
   const userid = sessionStorage.getItem("user_id");
+  const apiKey = sessionStorage.getItem(`${username}_api_key`);
+
   const { channelId } = useParams();
   const [messageDetails, setMessageDetails] = useState(null);
   const [reply, setReply] = useState('');
@@ -51,6 +53,7 @@ function ReplyThread({ messageId }) {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'X-API-Key': apiKey
             },
             body: JSON.stringify({
                 userid: userid, 

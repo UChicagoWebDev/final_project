@@ -10,6 +10,7 @@ import '../styles/channelContent.css';
 function ChannelContent() {
     const username = sessionStorage.getItem("username");
     const userid = sessionStorage.getItem("user_id");
+    const apiKey = sessionStorage.getItem(`${username}_api_key`);
     const { channelId, messageId } = useParams();
     const [channelName, setChannelName] = useState('');
     const [message, setMessage] = useState('');
@@ -55,6 +56,7 @@ function ChannelContent() {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    'X-API-Key': apiKey
                 },
                 body: JSON.stringify({
                     userid: userid, 

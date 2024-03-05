@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/login.css';
 
-function Login() {
+function Login({ onLoginClick }) {
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -30,6 +30,8 @@ function Login() {
         sessionStorage.setItem('user_id', data.user_id);
         sessionStorage.setItem(`${data.user_name}_api_key`, data.api_key);
         console.log(sessionStorage);
+
+        onLoginClick(sessionStorage.getItem("user_id"));
         navigate('/home'); 
       } else {
         console.log('Login failed');
@@ -58,7 +60,7 @@ function Login() {
       });
       const data = await response.json();
       console.log("data: ", data)
-      console.log("data.Success: ", data.success)
+      console.log("data.Success: ", data.Success)
       if (data.Success) {
         console.log('Signup Success:', data);
         sessionStorage.setItem('username', data.user_name);

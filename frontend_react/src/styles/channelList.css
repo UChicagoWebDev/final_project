@@ -1,4 +1,4 @@
-/* userHome.css */
+/* channelList.css */
 .home-container {
     font-family: Arial, sans-serif;
     display: flex;
@@ -20,7 +20,7 @@
     background-color:#3F0E40;
 }
 
-.channel {
+/* .channel {
     padding: 8px;
     cursor: pointer;
     border-radius: 4px;
@@ -28,6 +28,20 @@
     transition: background-color 0.2s ease;
     background-color:  #4A154B; 
     color: white; 
+} */
+
+.channel {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-bottom: 4px;
+    transition: background-color 0.2s ease;
+    background-color:  #4A154B; 
+    color: white; 
+    border-bottom: none;
 }
 
 .channel:hover {
@@ -47,4 +61,13 @@
 
 .current-channel:hover {
     background-color: #2C0838; 
+}
+
+.unread-messages {
+    margin-left: auto; 
+    background-color: #593B59;
+    color: #FFFFFF;
+    padding: 2px 6px;
+    border-radius: 12px;
+    font-size: 0.8rem;
 }
